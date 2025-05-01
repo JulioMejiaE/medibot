@@ -1,0 +1,270 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f4f8;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.eva-panel {
+  width: 30%;
+  background-color: #111827;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.eva-img {
+  width: 120px;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.medibot-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #10b981;
+}
+
+.eva-text {
+  text-align: center;
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.document-list {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.document-list h3 {
+  text-align: center;
+  border-bottom: 1px solid #2d3748;
+  padding-bottom: 10px;
+}
+
+#pdfs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#pdfs-list li {
+  background-color: #1f2937;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#pdfs-list li .pdf-name {
+  font-size: 0.9em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 80%;
+}
+
+#pdfs-list li .pdf-remove {
+  cursor: pointer;
+  color: #ef4444;
+  font-weight: bold;
+}
+
+#pdfs-list li.empty-list {
+  font-style: italic;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* CHAT AREA */
+.chat-panel {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+}
+
+#status-indicator {
+  font-size: 0.9em;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #ef4444;
+  color: white;
+}
+
+#status-indicator.connected {
+  background-color: #10b981;
+}
+
+.chat-box {
+  flex: 1;
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  overflow-y: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-message {
+  margin-bottom: 15px;
+  max-width: 80%;
+  display: flex;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+}
+
+.chat-message .message-content {
+  padding: 12px 15px;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message.user .message-content {
+  background-color: #dbeafe;
+  border-bottom-right-radius: 2px;
+  text-align: right;
+}
+
+.chat-message.bot .message-content {
+  background-color: #ecfdf5;
+  border-bottom-left-radius: 2px;
+  text-align: left;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.chat-input button {
+  padding: 10px 25px;
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.chat-input button:hover {
+  background-color: #1d4ed8;
+}
+
+.file-upload {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.upload-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: #4b5563;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.upload-label:hover {
+  background-color: #374151;
+}
+
+.upload-icon {
+  margin-right: 6px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.upload-status {
+  margin-left: 15px;
+  font-size: 0.9em;
+  color: #6b7280;
+}
+
+/* Estilos para mensajes de estado durante procesamiento */
+.processing-message {
+  font-style: italic;
+  color: #6b7280;
+}
+
+/* Estilos para cuando el bot está "pensando" */
+.thinking {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 10px;
+}
+
+.thinking .dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.thinking .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediBot - Asistente de Neuroanatomía</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- PDF.js para manejar PDFs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Sidebar (lado izquierdo) -->
+    <div class="eva-panel">
+      <img src="img/eva.png" alt="MEDIBOT" class="eva-img" />
+      <h2 class="medibot-title">MEDIBOT</h2>
+      <p class="eva-text">Tu asistente de neuroanatomía y anatomía humana</p>
+
+      <div class="document-list">
+        <h3>Documentos cargados</h3>
+        <ul id="pdfs-list">
+          <!-- La lista de PDFs cargados aparecerá aquí -->
+          <li class="empty-list">No hay documentos cargados</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Chat (lado derecho) -->
+    <div class="chat-panel">
+      <div class="chat-header">
+        <h2>CHAT MÉDICO</h2>
+        <span id="status-indicator">Desconectado</span>
+      </div>
+      <div class="chat-box" id="chat-box">
+        <!-- Mensaje de bienvenida -->
+        <div class="chat-message bot">
+          <div class="message-content">
+            ¡Hola! Soy MEDIBOT, tu asistente para consultas de neuroanatomía y anatomía humana. Sube algún PDF para
+            comenzar.
+          </div>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Escribí tu pregunta..." />
+        <button id="send-button" onclick="sendMessage()">Enviar</button>
+      </div>
+      <div class="file-upload">
+        <label for="pdf-file" class="upload-label">
+          <span class="upload-icon">📄</span>
+          Subir PDF
+        </label>
+        <input type="file" id="pdf-file" accept="application/pdf" multiple />
+        <div class="upload-status" id="upload-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
